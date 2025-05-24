@@ -1,6 +1,14 @@
-const Team = ({teamLists,newTeamLists}) =>{
+const Team = ({teamLists,newTeamLists,fighterLists,newFighterLists}) =>{
     const MemberDetails = (props) =>{
+        const HandleRemoveBtn = (props) =>{
+            const selectedID = props.id;
+            const newFighterMember = props
+        
+            const newTLists = teamLists.filter(item=> item.id !== selectedID)
+            newTeamLists(newTLists)
 
+            newFighterLists([...fighterLists, newFighterMember])
+            }
         return(
             <>
             <ul>

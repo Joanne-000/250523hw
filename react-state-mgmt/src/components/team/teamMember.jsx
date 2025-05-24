@@ -1,8 +1,6 @@
 
-const TeamMembers = ({teamLists,newTeamLists}) =>{
     const MemberDetails = (props) =>{
 
-        
     const HandleRemoveBtn = (props) =>{
     console.log("remove",props)
     const selectedID = props.id;
@@ -25,22 +23,5 @@ const TeamMembers = ({teamLists,newTeamLists}) =>{
             </>
     )}
 
-    return(
-        <>
-    
-        {teamLists.map((teamList)=>(
-            <MemberDetails 
-            key={teamList.id} 
-            id={teamList.id} 
-            href={teamList.img} 
-            name={teamList.name} 
-            price={teamList.price} 
-            strength={teamList.strength} 
-            agility={teamList.agility}
-            />
-        ))}
-        </>
-    )
-}
 
-export default TeamMembers
+export default MemberDetails

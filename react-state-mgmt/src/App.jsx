@@ -103,7 +103,7 @@ const App = () => {
     <h2>Money:</h2>
     <h2>Team Strength:</h2>
     <h2>Team Agility:</h2>
-    <Team teamLists={team} newTeamLists={setTeam}/>
+    <Team fighterLists={zombieFighters} newFighterLists={setZombieFighters} teamLists={team} newTeamLists={setTeam}/>
     <h2>Fighters</h2>
     <Fighters fighterLists={zombieFighters} newFighterLists={setZombieFighters} teamLists={team} newTeamLists={setTeam}/>
     </>

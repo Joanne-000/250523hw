@@ -5,13 +5,8 @@ const Fighters = ({fighterLists,newFighterLists,teamLists,newTeamLists}) =>{
     
     const Details = (props) =>{
         const HandleAddBtn = (props) =>{
-            console.log("add",props)
         const selectedID = props.id;
-        console.log("add",selectedID)
-
         const newTeamMember = props;
-        console.log("add",newTeamMember)
-        console.log("add",teamLists)
 
         newTeamLists([...teamLists, newTeamMember]);
 
