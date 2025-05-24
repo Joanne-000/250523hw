@@ -1,42 +1,35 @@
-const Team = ({teamLists,newTeamLists,fighterLists,newFighterLists}) =>{
-    const MemberDetails = (props) =>{
-        const HandleRemoveBtn = (props) =>{
-            const selectedID = props.id;
-            const newFighterMember = props
-        
-            const newTLists = teamLists.filter(item=> item.id !== selectedID)
-            newTeamLists(newTLists)
+import TeamDetails from "./TeamDetails"
 
-            newFighterLists([...fighterLists, newFighterMember])
-            }
-        return(
-            <>
-            <ul>
-                <li>
-                <img href={props.img}></img>
-                <h3>{props.name}</h3>
-                <p>Price: {props.price}</p>
-                <p>Strength: {props.strength}</p>
-                <p>Agility: {props.agility}</p>
-                <button onClick={() => HandleRemoveBtn(props)}>Remove</button>
-                </li>
-            </ul>
-            </>
-    )}
+const Team = (props) =>{
+const teamLists = props.teamLists
+const setTeamLists = props.setTeamLists
+const fighterLists = props.fighterLists
+const setFighterLists = props.setFighterLists
+const money=props.money
+const setMoney=props.setMoney
+const teamAgility=props.teamAgility
+const setTeamAgility=props.setTeamAgility
+const teamStrength=props.teamStrength
+const setTeamStrength=props.setTeamStrength
 
     return(
         <>
     <h2>Team</h2> 
-    <div>Pick some team members</div>
-        {teamLists.map((teamList)=>(
-            <MemberDetails 
-            key={teamList.id} 
-            id={teamList.id} 
-            href={teamList.img} 
-            name={teamList.name} 
-            price={teamList.price} 
-            strength={teamList.strength} 
-            agility={teamList.agility}
+    <div>{teamLists.length === 0 ? `Pick some team members`: ""}</div>
+        {teamLists.map((member)=>(
+            <TeamDetails 
+            key={member.id} 
+            member={member}
+            teamLists={teamLists}
+            setTeamLists={setTeamLists}
+            fighterLists={fighterLists}
+            setFighterLists={setFighterLists}
+            money={money} 
+            setMoney={setMoney}
+            teamAgility={teamAgility}
+            setTeamAgility={setTeamAgility}
+            teamStrength={teamStrength}
+            setTeamStrength={setTeamStrength}
             />
         ))}
         </>

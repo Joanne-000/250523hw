@@ -1,14 +1,19 @@
 import { useFormState } from "react-dom";
-import "./App.css"
-import Fighters from "./components/fighters/fighters";
-import Team from "./components/team/team";
 import { useState } from "react";
+import "./App.css"
+import Fighters from "./components/fighters/fighters"
+import Team from "./components/team/team"
+import Money from "./components/money/money";
+import TeamAgility from "./components/teamAgility/teamAgility";
+import TeamStrength from "./components/teamStrength/teamStrength";
 
 const App = () => {
   
   const [team, setTeam] = useState([]);
 
   const [money, setMoney] = useState(100);
+  const [teamAgility, setTeamAgility] = useState(0);
+  const [teamStrength, setTeamStrength] = useState(0);
 
   const [zombieFighters, setZombieFighters] = useState([
     {
@@ -100,12 +105,12 @@ const App = () => {
   return (
     <>
     <h1>Zombie Fighters</h1>
-    <h2>Money:</h2>
-    <h2>Team Strength:</h2>
-    <h2>Team Agility:</h2>
-    <Team fighterLists={zombieFighters} newFighterLists={setZombieFighters} teamLists={team} newTeamLists={setTeam}/>
+    <Money money={money} />
+    <TeamStrength teamStrength={teamStrength} />
+    <TeamAgility teamAgility={teamAgility} />
+    <Team fighterLists={zombieFighters} setFighterLists={setZombieFighters} teamLists={team} setTeamLists={setTeam} money={money} setMoney={setMoney} teamStrength={teamStrength} setTeamStrength={setTeamStrength} teamAgility={teamAgility} setTeamAgility={setTeamAgility}/>
     <h2>Fighters</h2>
-    <Fighters fighterLists={zombieFighters} newFighterLists={setZombieFighters} teamLists={team} newTeamLists={setTeam}/>
+    <Fighters fighterLists={zombieFighters} setFighterLists={setZombieFighters} teamLists={team} setTeamLists={setTeam} money={money} setMoney={setMoney} teamStrength={teamStrength} setTeamStrength={setTeamStrength} teamAgility={teamAgility} setTeamAgility={setTeamAgility}/>
     </>
   );
 }
